@@ -1,0 +1,37 @@
+PROBLEM: Finding minimum magnitude element.
+
+           5
+         /    \
+        4      6
+       /        \
+      3          7
+     /
+    1
+    
+Output: 1
+
+
+
+SOLUTION:
+
+int minElement(int &minE, Node* root){
+    if(root==NULL) return -1;
+    else{
+        minE=min(minE, root->data);
+        minElement(minE, root->left);
+        minElement(minE, root->right);
+    }
+    
+}
+int minValue(Node* root)
+{
+    // Code here
+    int minE=INT_MAX;
+    minElement(minE, root);
+    return minE;
+}
+
+
+
+
+
