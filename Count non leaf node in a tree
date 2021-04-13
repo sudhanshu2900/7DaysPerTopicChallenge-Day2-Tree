@@ -1,0 +1,33 @@
+PROBLEM:
+        1
+       / \
+      2   3
+     / \
+    4   5
+    
+OUTPUT: 2
+
+
+
+SOLUTION:
+
+
+void countNodes(int &nodes, Node* root){
+    if(root){
+        if((root->left!=NULL) || (root->right!=NULL))
+            nodes++;    
+        
+        countNodes(nodes, root->left);
+        countNodes(nodes, root->right);
+    }
+}
+int countNonLeafNodes(Node* root)
+{
+    int nodes=0;
+    countNodes(nodes, root);
+    return nodes;
+}
+
+
+
+
